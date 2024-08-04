@@ -7,7 +7,7 @@ const port = 8080;
 const cors = require("cors");
 
 const corsOptions = {
-  origin: process.env.BASE_URL,
+  origin: "https://munseunggyu.github.io/portfolio",
   optionsSuccessStatus: 200
 };
 
