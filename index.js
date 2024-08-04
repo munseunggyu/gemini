@@ -34,7 +34,7 @@ const personalInfo = {
   MBTI: "저의 MBTI는 INTJ로 새로운 지식과 기술을 습득하는 것을 즐깁니다. 끊임없이 학습하고 성장하려는 욕구가 강합니다."
 };
 app.get("/api/test", async (req, res) => {
-  console.log("hi");
+  console.log("hi", process.env.BASE_URL);
   res.json({ message: process.env.BASE_URL });
 });
 
