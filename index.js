@@ -7,7 +7,7 @@ const port = 8080;
 const cors = require("cors");
 
 const corsOptions = {
-  origin: "https://munseunggyu.github.io/portfolio",
+  origin: process.env.BASE_URL,
   optionsSuccessStatus: 200
 };
 
@@ -36,6 +36,7 @@ const personalInfo = {
 
 app.post("/api/ai", async (req, res) => {
   const { message } = req.body;
+  console.log(message, req.body);
   const prompt = `
     사용자가 다음과 같은 질문을 했을 때 미리 설정된 개인 정보를 사용하여 답변하세요.
     - 나이: ${personalInfo.age}
