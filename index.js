@@ -40,7 +40,7 @@ app.get("/api/test", async (req, res) => {
 
 app.post("/api/ai", async (req, res) => {
   const { message } = req.body;
-  console.log(message, req.body);
+
   const prompt = `
     사용자가 다음과 같은 질문을 했을 때 미리 설정된 개인 정보를 사용하여 답변하세요.
     - 나이: ${personalInfo.age}
@@ -58,7 +58,8 @@ app.post("/api/ai", async (req, res) => {
     const result = await geminiModel.generateContent(prompt);
     const response = result.response;
     const responseMessage = response.text();
-
+    console.log("질문: ", message);
+    console.log("응답: ", responseMessage);
     res.json({ message: responseMessage });
   } catch (error) {
     console.error("Error generating content:", error);
